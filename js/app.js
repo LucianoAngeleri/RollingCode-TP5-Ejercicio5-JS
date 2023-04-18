@@ -27,6 +27,9 @@ function cronometrarTiempo() {
     hs = Math.floor(tiempoCronometrado/1000/60/60);
 }
 function actualizarTiempo() {
+    if (mseg < 10) {
+        mseg = "0" + mseg
+    }
     if (seg < 10) {
         seg = "0" + seg
     }
