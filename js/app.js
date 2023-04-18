@@ -28,6 +28,8 @@ function cronometrarTiempo() {
 }
 function actualizarTiempo() {
     if (mseg < 10) {
+        mseg = "00" + mseg
+    }else if(mseg != 10 && mseg < 100){
         mseg = "0" + mseg
     }
     if (seg < 10) {
