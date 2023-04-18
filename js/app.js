@@ -7,64 +7,64 @@ let horas = document.getElementById("horas"),
     segundos = document.getElementById("segundos"),
     milisegundos = document.getElementById("milisegundos");
 
+btnInicio.addEventListener("click", iniciar);
+btnPausa.addEventListener("click", pausar);
+btnReset.addEventListener("click", reset);
+
+let tiempoActual;
 let tiempoCronometrado = 0;
 let intervalo;
-
-btnInicio.addEventListener("click",iniciar)
-btnPausa.addEventListener("click",pausar)
-btnReset.addEventListener("click",reset)
-
-let mseg =0;
+let mseg = 0;
 let seg = 0;
 let min = 0;
 let hs = 0;
 
 function cronometrarTiempo() {
-    
-    tiempoCronometrado ++;
-    mseg=tiempoCronometrado % 1000;
-
-    if (mseg === 0) {
-        seg ++;
-    }
-    if (seg === 60) {
-        min ++;
-        seg=0;
-    }
-    if (min === 60) {
-        hs ++;
-        min=0;
-    }
+    tiempoCronometrado = Date.now() - tiempoActual;
+    mseg = tiempoCronometrado % 1000;
+    seg = Math.floor(tiempoCronometrado/1000)%60;
+    min = Math.floor(tiempoCronometrado/1000/60)%60;
+    hs = Math.floor(tiempoCronometrado/1000/60/60);
 }
-function actualizarTiempo(){
+function actualizarTiempo() {
+    if (seg < 10) {
+        seg = "0" + seg
+    }
+    if (min < 10) {
+        min = "0" + min
+    }
+    if (hs < 10) {
+        hs = "0" + hs
+    }
     milisegundos.innerHTML = `${mseg}<small class="fs-6 ps-1 d-none d-md-inline">mseg</small>`
     segundos.innerHTML = `${seg}<small class="fs-6 ps-1 d-none d-md-inline">seg</small>`
     minutos.innerHTML = `${min}<small class="fs-6 ps-1 d-none d-md-inline">min</small>`
     horas.innerHTML = `${hs}<small class="fs-6 ps-1 d-none d-md-inline">hs</small>`
 }
 function iniciar() {
-    intervalo = setInterval(cronometrarTiempo,1)
-    actualizar = setInterval(actualizarTiempo,100)
-    btnInicio.disabled =true
-    btnPausa.disabled =false
-    btnReset.disabled =false
+    tiempoActual = Date.now() - tiempoCronometrado;
+    intervalo = setInterval(cronometrarTiempo, 1)
+    actualizar = setInterval(actualizarTiempo, 1)
+    btnInicio.disabled = true
+    btnPausa.disabled = false
+    btnReset.disabled = false
 }
 function pausar() {
     clearInterval(intervalo);
     clearInterval(actualizar);
-    btnInicio.disabled =false
-    btnPausa.disabled =true
+    btnInicio.disabled = false
+    btnPausa.disabled = true
 }
 function reset() {
     clearInterval(intervalo);
     clearInterval(actualizar);
     tiempoCronometrado = 0;
-    mseg =0;
+    mseg = 0;
     seg = 0;
     min = 0;
     hs = 0;
     actualizarTiempo();
-    btnReset.disabled =true
-    btnPausa.disabled =true
-    btnInicio.disabled =false
+    btnReset.disabled = true
+    btnPausa.disabled = true
+    btnInicio.disabled = false
 }
