@@ -59,7 +59,7 @@
         </div>
       </section>
       <section
-        class="container flex-column align-items-center my-3 px-3 py-3 px-md-5 py-md-5 bg-black bg-opacity-50 rounded-5">
+        class="container flex-column my-3 px-3 py-3 px-md-5 py-md-5 bg-black bg-opacity-50 rounded-5">
         <h3 class="fs-2 text-center pb-3 neon-texto">Cronometro</h3>
         <div class="d-flex justify-content-between align-items-center gap-1 gap-md-3 w-100">
           <h4 class="fs-3 text-warning rounded-4 bg-dark border border-warning-subtle py-3 px-md-3 w-100 neon" id="horas">
@@ -78,16 +78,18 @@
             00<small class="fs-6 ps-1 d-none d-md-inline">mseg</small>
           </h4>
         </div>
-        <div class="btn-group" role="group">
-          <button type="button" id="btnReset" disabled class="btn btn-outline-danger fs-2 d-block align-items-center">
-            <i class="bi bi-skip-start-btn px-3 fs-1"></i><span class="d-none d-md-block">Reset</span>
-          </button>
-          <button type="button" id="btnInicio" class="btn btn-outline-success fs-2 d-block align-items-center">
-            <i class="bi bi-play-btn px-3 fs-1"></i><span class="d-none d-md-block">Iniciar</span>
-          </button>
-          <button type="button" id="btnPausa" disabled class="btn btn-outline-primary fs-2 d-block align-items-center">
-            <i class="bi bi-pause-btn px-3 fs-1"></i><span class="d-none d-md-block">Pausar</span>
-          </button>
+        <div class="mx-auto text-center pt-4">
+          <div class="btn-group" role="group">
+            <button type="button" id="btnReset" disabled class="btn btn-outline-secondary fs-2 d-block align-items-center">
+              <i class="bi bi-skip-start-btn px-3 fs-1"></i><span class="d-none d-md-block">Reset</span>
+            </button>
+            <button type="button" id="btnInicio" class="btn btn-outline-success fs-2 d-block align-items-center">
+              <i class="bi bi-play-btn px-3 fs-1"></i><span class="d-none d-md-block">Iniciar</span>
+            </button>
+            <button type="button" id="btnPausa" disabled class="btn btn-outline-secondary fs-2 d-block align-items-center">
+              <i class="bi bi-pause-btn px-3 fs-1"></i><span class="d-none d-md-block">Pausar</span>
+            </button>
+          </div>
         </div>
       </section>
     </main>

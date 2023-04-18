@@ -48,12 +48,19 @@ function iniciar() {
     btnInicio.disabled = true
     btnPausa.disabled = false
     btnReset.disabled = false
+    btnPausa.classList.replace("btn-outline-secondary","btn-outline-primary")
+    btnReset.classList.replace("btn-outline-secondary","btn-outline-danger")
+    btnInicio.classList.replace("btn-outline-success","btn-outline-secondary")
+
 }
 function pausar() {
     clearInterval(intervalo);
     clearInterval(actualizar);
     btnInicio.disabled = false
     btnPausa.disabled = true
+    btnPausa.classList.replace("btn-outline-primary","btn-outline-secondary")
+    btnInicio.classList.replace("btn-outline-secondary","btn-outline-success")
+
 }
 function reset() {
     clearInterval(intervalo);
@@ -67,4 +74,7 @@ function reset() {
     btnReset.disabled = true
     btnPausa.disabled = true
     btnInicio.disabled = false
+    btnPausa.classList.replace("btn-outline-primary","btn-outline-secondary")
+    btnReset.classList.replace("btn-outline-danger","btn-outline-secondary")
+    btnInicio.classList.replace("btn-outline-success","btn-outline-success")
 }
