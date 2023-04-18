@@ -76,5 +76,8 @@ function reset() {
     btnInicio.disabled = false
     btnPausa.classList.replace("btn-outline-primary","btn-outline-secondary")
     btnReset.classList.replace("btn-outline-danger","btn-outline-secondary")
-    btnInicio.classList.replace("btn-outline-success","btn-outline-success")
+    if (btnInicio.classList.contains("btn-outline-secondary")) {
+        btnInicio.classList.replace("btn-outline-secondary","btn-outline-success")
+    }
 }
+
